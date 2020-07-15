@@ -1,13 +1,11 @@
 module github.com/quen2404/shippy/shippy-cli-consignment
 
-replace github.com/quen2404/shippy/shippy-service-consignment => ../shippy-service-consignment
-
 go 1.14
 
 require (
-	github.com/micro/go-micro v1.18.0
 	github.com/micro/go-micro/v2 v2.9.1
-	github.com/quen2404/shippy/shippy-service-consignment v0.0.0-00010101000000-000000000000
-	google.golang.org/grpc v1.30.0 // indirect
-	google.golang.org/grpc/examples v0.0.0-20200714235929-a6c3c6968e90 // indirect
+	github.com/quen2404/shippy/shippy-service-consignment v0.0.0-20200715124743-37e7d6a92e94
 )
+
+// replace github.com/quen2404/shippy/shippy-service-consignment => ../shippy-service-consignment
+replace github.com/coreos/etcd => github.com/ozonru/etcd v3.3.20-grpc1.27-origmodule+incompatible
