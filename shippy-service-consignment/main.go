@@ -36,8 +36,11 @@ func main() {
 	if err != nil {
 		log.Panic(err)
 	}
-	defer client.Disconnect(context.Background())
-
+	defer func() {
+		if err = client.Disconnect(context.Background()); err != nil {
+			panic(err)
+		}
+	}()
 	h := handler.NewHandler(
 		repository.NewMongoRepository(client.Database("shippy").Collection("consignments")),
 		vesselProto.NewVesselService("shippy.service.client", service.Client()),
