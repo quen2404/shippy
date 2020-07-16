@@ -23,15 +23,15 @@ RUN go mod download
 
 COPY . .
 
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-service-user
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o shippy-cli-user
 
-# Run container
+
 FROM alpine:latest
 
 RUN apk --no-cache add ca-certificates
 
 RUN mkdir /app
 WORKDIR /app
-COPY --from=builder /app/shippy-service-user .
+COPY --from=builder /app/shippy-cli-user .
 
-CMD ["./shippy-service-user"]
+CMD ["./shippy-cli-user"]

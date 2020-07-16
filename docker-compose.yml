@@ -35,8 +35,11 @@ services:
       MICRO_ADDRESS: ":50051"
 
   # Commands
-  cli:
+  consignment-cli:
     build: ./shippy-cli-consignment
+
+  user-cli:
+    build: ./shippy-cli-user
 
   # Database tier
   datastore:
